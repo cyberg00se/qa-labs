@@ -1,30 +1,20 @@
-import java.io.FileNotFoundException;
 import java.io.InvalidObjectException;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Main {
 
-    static List<Class<? extends Exception>> criticalList = new LinkedList<>();
+    
     public static void main(String[] args) throws Exception {
 
-        criticalList.add(NullPointerException.class);
-        criticalList.add(ArrayIndexOutOfBoundsException.class);
-        criticalList.add(FileNotFoundException.class);
+        Exceptions exs=new Exceptions();
 
-        System.out.print(isCritical(new InvalidObjectException("hell")));
-        System.out.print(isCritical(new NullPointerException()));
+        System.out.println(exs.isCritical(new InvalidObjectException("hell")));
+        System.out.println(exs.isCritical(new NullPointerException()));
+
+        exs.manageException(new InvalidObjectException("hell"));
+        exs.manageException(new NullPointerException());
+
+        System.out.println(exs.critCounter);
+        System.out.println(exs.usualCounter);
     }
 
-    public static boolean isCritical(Exception input) {
-
-        for (Class<? extends Exception> critClass : criticalList) {
-            if (critClass.isInstance(input)) 
-            {
-             return true;
-            }                
-        }
-        return false;
-            
-    }
 }
