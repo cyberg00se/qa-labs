@@ -23,4 +23,21 @@ class ExceptionManagerTest {
         //assert
         assertEquals(expected, actual);
     }
+
+    @ParameterizedTest
+    @ValueSource(classes = {ClassCastException.class, NoSuchMethodException.class, IllegalAccessException.class})
+    public void exceptionIsNotCritical(Class exceptionClass)
+            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        //arrange
+        ExceptionManager manager = new ExceptionManager();
+        Exception inputException = (Exception)exceptionClass.getDeclaredConstructor().newInstance();
+
+        boolean expected = false;
+
+        //act
+        boolean actual = manager.isCritical(inputException);
+
+        //assert
+        assertEquals(expected, actual);
+    }
 }
