@@ -36,4 +36,34 @@ class ExceptionManagerTest {
         //act&assert
         assertFalse(testManager.isCritical(inputException));
     }
+
+    @ParameterizedTest
+    @ValueSource(classes = {NullPointerException.class, ArrayIndexOutOfBoundsException.class, FileNotFoundException.class})
+    public void manageCriticalException(Class exceptionClass)
+            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        //arrange
+        Exception inputException = (Exception)exceptionClass.getDeclaredConstructor().newInstance();
+        int expected = testManager.getCritCounter() + 1;
+
+        //act
+        testManager.manageException(inputException);
+
+        //assert
+        assertEquals(expected, testManager.getCritCounter());
+    }
+
+    @ParameterizedTest
+    @ValueSource(classes = {ClassCastException.class, NoSuchMethodException.class, IllegalAccessException.class})
+    public void manageUsualException(Class exceptionClass)
+            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        //arrange
+        Exception inputException = (Exception)exceptionClass.getDeclaredConstructor().newInstance();
+        int expected = testManager.getUsualCounter() + 1;
+
+        //act
+        testManager.manageException(inputException);
+
+        //assert
+        assertEquals(expected, testManager.getUsualCounter());
+    }
 }
