@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -7,16 +8,22 @@ import java.lang.reflect.InvocationTargetException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ExceptionManagerTest {
+    private ExceptionManager testManager;
+
+    @BeforeEach
+    public void setUpExceptionManagerTest() {
+        testManager = new ExceptionManager();
+    }
+
     @ParameterizedTest
     @ValueSource(classes = {NullPointerException.class, ArrayIndexOutOfBoundsException.class, FileNotFoundException.class})
     public void exceptionIsCritical(Class exceptionClass)
             throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         //arrange
-        ExceptionManager manager = new ExceptionManager();
         Exception inputException = (Exception)exceptionClass.getDeclaredConstructor().newInstance();
 
         //act&assert
-        assertTrue(manager.isCritical(inputException));
+        assertTrue(testManager.isCritical(inputException));
     }
 
     @ParameterizedTest
@@ -24,10 +31,9 @@ class ExceptionManagerTest {
     public void exceptionIsNotCritical(Class exceptionClass)
             throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         //arrange
-        ExceptionManager manager = new ExceptionManager();
         Exception inputException = (Exception)exceptionClass.getDeclaredConstructor().newInstance();
 
         //act&assert
-        assertFalse(manager.isCritical(inputException));
+        assertFalse(testManager.isCritical(inputException));
     }
 }
