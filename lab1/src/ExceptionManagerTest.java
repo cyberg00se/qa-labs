@@ -15,13 +15,8 @@ class ExceptionManagerTest {
         ExceptionManager manager = new ExceptionManager();
         Exception inputException = (Exception)exceptionClass.getDeclaredConstructor().newInstance();
 
-        boolean expected = true;
-
-        //act
-        boolean actual = manager.isCritical(inputException);
-
-        //assert
-        assertEquals(expected, actual);
+        //act&assert
+        assertTrue(manager.isCritical(inputException));
     }
 
     @ParameterizedTest
@@ -32,12 +27,7 @@ class ExceptionManagerTest {
         ExceptionManager manager = new ExceptionManager();
         Exception inputException = (Exception)exceptionClass.getDeclaredConstructor().newInstance();
 
-        boolean expected = false;
-
-        //act
-        boolean actual = manager.isCritical(inputException);
-
-        //assert
-        assertEquals(expected, actual);
+        //act&assert
+        assertFalse(manager.isCritical(inputException));
     }
 }
