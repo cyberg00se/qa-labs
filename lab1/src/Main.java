@@ -1,3 +1,5 @@
+package lab1.src;
+
 import java.io.InvalidObjectException;
 
 public class Main {
@@ -12,6 +14,7 @@ public class Main {
 
         exs.manageException(new InvalidObjectException("hell"));
         exs.manageException(new NullPointerException());
+        exs.manageException(new ArrayIndexOutOfBoundsException());
 
         System.out.println(exs.critCounter);
         System.out.println(exs.usualCounter);
