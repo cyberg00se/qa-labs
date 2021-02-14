@@ -3,10 +3,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ExceptionManager {
-    static List<Class<? extends Exception>> criticalList = new LinkedList<>();
+    private static List<Class<? extends Exception>> criticalList = new LinkedList<>();
 
-    int critCounter;
-    int usualCounter;
+    private int critCounter;
+    private int usualCounter;
 
     public ExceptionManager(){
         critCounter = 0;
@@ -30,5 +30,13 @@ public class ExceptionManager {
             critCounter++;
         else
             usualCounter++;
+    }
+
+    public int getCritCounter() {
+        return critCounter;
+    }
+
+    public int getUsualCounter() {
+        return usualCounter;
     }
 }
