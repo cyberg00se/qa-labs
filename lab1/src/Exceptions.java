@@ -1,3 +1,5 @@
+package lab1.src;
+
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
