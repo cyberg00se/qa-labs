@@ -25,7 +25,7 @@ class ExceptionManagerTest {
         Exception inputException = (Exception)exceptionClass.getDeclaredConstructor().newInstance();
 
         //act&assert
-        assertTrue(testManager.isCritical(inputException));
+        assertTrue(testManager.isCriticalException(inputException));
     }
 
     @ParameterizedTest
@@ -36,7 +36,7 @@ class ExceptionManagerTest {
         Exception inputException = (Exception)exceptionClass.getDeclaredConstructor().newInstance();
 
         //act&assert
-        assertFalse(testManager.isCritical(inputException));
+        assertFalse(testManager.isCriticalException(inputException));
     }
 
     @ParameterizedTest

@@ -4,7 +4,9 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ExceptionManager {
+public class ExceptionManager //implements ICritical 
+{
+
     private static List<Class<? extends Exception>> criticalList = new LinkedList<>();
 
     private int critCounter;
@@ -19,16 +21,15 @@ public class ExceptionManager {
         criticalList.add(FileNotFoundException.class);
     }
 
-    public boolean isCritical(Exception input) {
-        for (Class<? extends Exception> critClass : criticalList) {
-            if (critClass.isInstance(input))
-                return true;
-        }
-        return false;
+    public boolean isCriticalException(Exception input) {
+
+        ICriticalManager critManager=new FileCriticalManager();
+        return critManager.isCritical(input);
+
     }
 
     public void manageException(Exception input) {
-        if(isCritical(input))
+        if(isCriticalException(input))
             critCounter++;
         else
             usualCounter++;
