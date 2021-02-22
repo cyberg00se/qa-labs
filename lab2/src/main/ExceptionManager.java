@@ -29,6 +29,13 @@ public class ExceptionManager {
         crManager=mng;
     }
 
+    public IServerConnection getServerManager(){
+        return serverConManager;
+    }
+    public void setServerManager(IServerConnection mng){
+        serverConManager=mng;
+    }
+
     public int getCritCounter() {
         return critCounter;
     }
