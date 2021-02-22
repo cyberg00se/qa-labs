@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e8b608-f558-4efb-aa96-719e4625536d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/ExceptionManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/junit-4.13.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/junit-platform-console-standalone-1.7.0-M1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ExceptionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ExceptionManagerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileCriticalManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ICriticalManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IServerConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServerConnectionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServerManagerFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lab2/ExceptionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ExceptionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lab2/src/FileCriticalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileCriticalManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lab2/src/ICriticalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ICriticalManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lab2/src/IServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IServerConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lab2/src/ServerConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerConnectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lab2/src/ServerManagerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerManagerFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +22,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -39,8 +36,26 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="lab2" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="lab2.test" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="Vcs.Log.Tabs.Properties">

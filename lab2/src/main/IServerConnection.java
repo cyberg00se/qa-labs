@@ -1,4 +1,4 @@
-package lab2.src;
+package main;
 
 public interface IServerConnection {
     public int getErrorCounter();

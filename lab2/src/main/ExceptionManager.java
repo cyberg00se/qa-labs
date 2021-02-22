@@ -1,6 +1,4 @@
-package lab2;
-
-import lab2.src.*;
+package main;
 
 public class ExceptionManager {
     private int critCounter;

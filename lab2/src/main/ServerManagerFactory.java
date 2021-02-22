@@ -1,4 +1,4 @@
-package lab2.src;
+package main;
 
 public class ServerManagerFactory {
 
