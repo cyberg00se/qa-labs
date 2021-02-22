@@ -1,6 +1,6 @@
-package test;
+package lab2.src.test;
 
-import main.IServerConnection;
+import lab2.src.main.IServerConnection;
 
 public class FakeServerConnection implements IServerConnection {
 

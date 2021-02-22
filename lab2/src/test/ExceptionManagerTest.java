@@ -1,6 +1,6 @@
-package test;
+package lab2.src.test;
 
-import main.*;
+import lab2.src.main.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

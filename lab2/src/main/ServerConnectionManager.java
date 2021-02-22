@@ -1,4 +1,4 @@
-package main;
+package lab2.src.main;
 
 public class ServerConnectionManager implements IServerConnection {
 

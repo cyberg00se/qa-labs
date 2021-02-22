@@ -1,6 +1,6 @@
-package test;
+package lab2.src.test;
 
-import main.ICriticalManager;
+import lab2.src.main.ICriticalManager;
 
 import java.io.IOException;
 
