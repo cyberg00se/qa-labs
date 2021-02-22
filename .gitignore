@@ -1,0 +1,15 @@
+# Ignore everything
+/**
+
+# Except directories
+!*/
+
+# And source code files
+!*.java
+
+# And these files
+!.gitignore
+!README.md
+
+# Also ignore .idea
+**/.idea/
