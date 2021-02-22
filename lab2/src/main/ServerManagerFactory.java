@@ -10,7 +10,7 @@ public class ServerManagerFactory {
         return new ServerConnectionManager();
     }
 
-    public void SetManager(IServerConnection mng){
+    public static void SetManager(IServerConnection mng){
         crManager=mng;
     }
 }

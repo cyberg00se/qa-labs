@@ -6,7 +6,7 @@ public class ExceptionManager {
     private ICriticalManager crManager;
     private IServerConnection serverConManager;
 
-    public ExceptionManager(String file) {
+    public ExceptionManager() {
         critCounter = 0;
         usualCounter = 0;
 
@@ -14,7 +14,7 @@ public class ExceptionManager {
         serverConManager= ServerManagerFactory.Create();
     }
 
-    public ExceptionManager(ICriticalManager mng, String file) {
+    public ExceptionManager(ICriticalManager mng) {
         critCounter = 0;
         usualCounter = 0;
 
@@ -36,12 +36,12 @@ public class ExceptionManager {
         return usualCounter;
     }
 
-    public boolean isCriticalException(Exception input) {
+    public boolean isCritical(Exception input) {
         return crManager.isCritical(input);
     }
 
     public void manageException(Exception input) {
-        if(isCriticalException(input)){
+        if(isCritical(input)){
             serverConManager.SendToServer(input);
             critCounter++;
         }
