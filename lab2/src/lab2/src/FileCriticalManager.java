@@ -3,20 +3,19 @@ package lab2.src;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class FileCriticalManager implements ICriticalManager {
+    private static List<Class<? extends Exception>> criticalList = new LinkedList<>();
 
     @Override
-    public List<Class<? extends Exception>> ExceptionList(String file)
-    throws IOException, ClassNotFoundException
+    public void ExceptionList(String file)
+            throws IOException, ClassNotFoundException
     {
         List<Class<? extends Exception>> tempList=new LinkedList<>();
 
-     
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line;
         while ((line = reader.readLine()) != null) {
@@ -24,12 +23,15 @@ public class FileCriticalManager implements ICriticalManager {
         }
 
         reader.close();
-        return tempList;
+        criticalList=tempList;
     }
 
     @Override
     public boolean isCritical(Exception input){
-        /******/
+        for (Class<? extends Exception> critClass : criticalList) {
+            if (critClass.isInstance(input))
+                return true;
+        }
         return false;
     }
 }
