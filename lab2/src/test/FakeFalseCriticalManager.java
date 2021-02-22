@@ -4,10 +4,12 @@ import main.ICriticalManager;
 
 import java.io.IOException;
 
-public class FakeCriticalManager implements ICriticalManager {
+public class FakeFalseCriticalManager implements ICriticalManager {
+    private boolean WillBeCritical = false;
+
     @Override
     public boolean isCritical(Exception input) {
-        return false;
+        return WillBeCritical;
     }
 
     @Override
@@ -15,3 +17,4 @@ public class FakeCriticalManager implements ICriticalManager {
 
     }
 }
+
