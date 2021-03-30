@@ -46,6 +46,9 @@ public class TodosPage {
     public void checkFirstTodo(){ 
         isCheckedTodoField.click();
     }
+    public void clickClearCompleted(){
+        clearCompleted.click();
+    }
 
    /* public void checkTodo(int index) {
         todoChecksList = driver.findElements(By.cssSelector("ul.todo-list > li"));
