@@ -6,6 +6,8 @@
 
 # And source code files
 !*.java
+# And conf.properties
+!conf.properties
 
 # And these files
 !.gitignore
