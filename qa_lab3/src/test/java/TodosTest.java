@@ -28,6 +28,17 @@ public class TodosTest {
         todosPage.inputNewTodo("my task 1");
         assertEquals("my task 1", todosPage.getTodoName(todosPage.getTodosCount()-1));
     }
+    
+    @Test
+    public void clearCompletedTest(){
+        todosPage.inputNewTodo("my task 1" + Keys.ENTER);
+        todosPage.inputNewTodo("my task 2" + Keys.ENTER);
+
+        todosPage.checkFirstTodo();
+
+        todosPage.clickClearCompleted();
+        assertEquals(todosPage.getFoundItemsCount(),"1");
+    }
 
     /*@Test
     public void checkNewTodoTest(){
