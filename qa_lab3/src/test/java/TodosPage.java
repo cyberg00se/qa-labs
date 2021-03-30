@@ -16,14 +16,12 @@ public class TodosPage {
 
     @FindBy(xpath = "/html/body/ng-view/section/header/form/input")
     private WebElement newTodoField;
-    private int todosCount;
 
+    @FindBy(css = "ul.todo-list > li")
+    private List<WebElement> todoList;
+
+    @FindBy(css = "label.ng-binding")
     private List<WebElement> todoNamesList;
-    private List<WebElement> todoChecksList;
-
-    public int getTodosCount() {
-        return todosCount;
-    }
     
     @FindBy(xpath = "/html/body/ng-view/section/footer/button")
     private WebElement clearCompleted;
@@ -34,34 +32,36 @@ public class TodosPage {
     @FindBy(xpath = "/html/body/ng-view/section/footer/span/strong")
     private WebElement foundItemsCount;
 
-    public String getFoundItemsCount() {
-        return foundItemsCount.getText();
+    public int getAllItemsCount() {
+        return todoList.size();
+    }
+
+    public int getActiveItemsCount() {
+        return Integer.parseInt(foundItemsCount.getText());
     }
 
     public void inputNewTodo(String todo) {
         newTodoField.sendKeys(todo + Keys.ENTER);
-        todosCount++;
     }
     
-    public void checkFirstTodo(){ 
+    public void toggleFirstTodo(){
         isCheckedTodoField.click();
     }
     public void clickClearCompleted(){
         clearCompleted.click();
     }
 
-   /* public void checkTodo(int index) {
-        todoChecksList = driver.findElements(By.cssSelector("ul.todo-list > li"));
-        todoChecksList.get(index).click();
-    }*/
+    public void toggleTodo(int index) {
+        WebElement checkbox = todoList.get(index).findElement(By.cssSelector("div.view > input"));
+        checkbox.click();
+    }
 
     public String getTodoName(int index) {
         todoNamesList = driver.findElements(By.cssSelector("label.ng-binding"));
         return todoNamesList.get(index).getText();
     }
 
-    /*public boolean getTodoIsChecked(int index){
-        todoChecksList = driver.findElements(By.cssSelector("ul.todo-list > li"));
-        return todoNamesList.get(index).getAttribute("class").contains("completed");
-    }*/
+    public boolean getTodoIsChecked(int index) {
+        return todoList.get(index).getAttribute("class").contains("completed");
+    }
 }

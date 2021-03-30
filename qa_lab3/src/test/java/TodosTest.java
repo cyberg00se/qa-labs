@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -26,26 +25,26 @@ public class TodosTest {
     @Test
     public void makeNewTodo() {
         todosPage.inputNewTodo("my task 1");
-        assertEquals("my task 1", todosPage.getTodoName(todosPage.getTodosCount()-1));
+        assertEquals("my task 1", todosPage.getTodoName(todosPage.getAllItemsCount()-1));
     }
     
     @Test
     public void clearCompletedTest(){
-        todosPage.inputNewTodo("my task 1" + Keys.ENTER);
-        todosPage.inputNewTodo("my task 2" + Keys.ENTER);
+        todosPage.inputNewTodo("my task 2");
+        int expected = todosPage.getAllItemsCount()-1;
 
-        todosPage.checkFirstTodo();
+        todosPage.toggleFirstTodo();
 
         todosPage.clickClearCompleted();
-        assertEquals(todosPage.getFoundItemsCount(),"1");
+        assertEquals(expected, todosPage.getActiveItemsCount());
     }
 
-    /*@Test
-    public void checkNewTodoTest(){
-        todosPage.inputNewTodo("my task 2");
-        todosPage.checkTodo(todosPage.getTodosCount()-1);
-        assertEquals(true, todosPage.getTodoIsChecked(todosPage.getTodosCount()-1));
-    }*/
+    @Test
+    public void toggleNewTodoTest() {
+        todosPage.inputNewTodo("my task 3");
+        todosPage.toggleTodo(todosPage.getAllItemsCount()-1);
+        assertEquals(true, todosPage.getTodoIsChecked(todosPage.getAllItemsCount()-1));
+    }
 
     @AfterAll
     public static void tearDown() {
