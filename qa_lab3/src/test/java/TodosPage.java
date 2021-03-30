@@ -24,10 +24,27 @@ public class TodosPage {
     public int getTodosCount() {
         return todosCount;
     }
+    
+    @FindBy(xpath = "/html/body/ng-view/section/footer/button")
+    private WebElement clearCompleted;
+    
+    @FindBy(xpath = "/html/body/ng-view/section/section/ul/li/div/input")
+    private WebElement isCheckedTodoField;
+
+    @FindBy(xpath = "/html/body/ng-view/section/footer/span/strong")
+    private WebElement foundItemsCount;
+
+    public String getFoundItemsCount() {
+        return foundItemsCount.getText();
+    }
 
     public void inputNewTodo(String todo) {
         newTodoField.sendKeys(todo + Keys.ENTER);
         todosCount++;
+    }
+    
+    public void checkFirstTodo(){ 
+        isCheckedTodoField.click();
     }
 
    /* public void checkTodo(int index) {
