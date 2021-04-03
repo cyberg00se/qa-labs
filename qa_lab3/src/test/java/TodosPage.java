@@ -64,4 +64,16 @@ public class TodosPage {
     public boolean getTodoIsChecked(int index) {
         return todoList.get(index).getAttribute("class").contains("completed");
     }
+    
+    public void deleteTodo(String task){
+       var element = driver.findElement(By.xpath("//label[text()='"+task+"']/.."));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.perform();
+
+        var destroyB=driver.findElement(By.xpath("//label[text()='"+task+"']/..//button[@class='destroy']"));
+        destroyB.click();
+        
+        todosCount--;
+    }
 }
