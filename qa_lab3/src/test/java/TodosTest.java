@@ -45,6 +45,21 @@ public class TodosTest {
         todosPage.toggleTodo(todosPage.getAllItemsCount()-1);
         assertEquals(true, todosPage.getTodoIsChecked(todosPage.getAllItemsCount()-1));
     }
+    
+    @Test
+    public void deleteTaskTest(){
+
+        todosPage.inputNewTodo("my task 1");
+
+        var previous=todosPage.getTodosCount();
+        todosPage.inputNewTodo("my task 2");
+        todosPage.inputNewTodo("my task 3");
+
+        todosPage.deleteTodo("my task 2");
+        todosPage.deleteTodo("my task 3");
+
+        assertEquals(previous,todosPage.getTodosCount());
+    }
 
     @AfterAll
     public static void tearDown() {
