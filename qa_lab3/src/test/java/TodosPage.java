@@ -76,4 +76,16 @@ public class TodosPage {
         
         todosCount--;
     }
+    
+    public String editTodo(String todo, String editedTodo){
+        var element=driver.findElement(By.xpath("//label[text()='"+todo+"']/..//label"));
+        Actions act=new Actions(driver);
+        act.doubleClick(element).build().perform();
+        var input=driver.findElement(By.xpath("//label[text()='"+todo+"']/../../form/input"));
+        input.sendKeys(Keys.CONTROL+"a");
+        input.sendKeys(editedTodo);
+        input.submit();
+
+        return element.getText();
+    }
 }
