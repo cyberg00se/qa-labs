@@ -60,6 +60,14 @@ public class TodosTest {
 
         assertEquals(previous,todosPage.getTodosCount());
     }
+    
+    @ParameterizedTest
+    @CsvSource("my task 1,my task new")
+    public void EditedTest(String todo,String editedTodo){
+        todosPage.inputNewTodo("my task 1");
+        var result=todosPage.editTodo(todo,editedTodo);
+        assertEquals(editedTodo,result);
+    }
 
     @AfterAll
     public static void tearDown() {
