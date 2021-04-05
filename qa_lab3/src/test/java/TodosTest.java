@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -51,14 +53,14 @@ public class TodosTest {
 
         todosPage.inputNewTodo("my task 1");
 
-        var previous=todosPage.getTodosCount();
+        var previous=todosPage.getAllItemsCount();
         todosPage.inputNewTodo("my task 2");
         todosPage.inputNewTodo("my task 3");
 
         todosPage.deleteTodo("my task 2");
         todosPage.deleteTodo("my task 3");
 
-        assertEquals(previous,todosPage.getTodosCount());
+        assertEquals(previous,todosPage.getAllItemsCount());
     }
     
     @ParameterizedTest
