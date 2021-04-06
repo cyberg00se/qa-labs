@@ -26,9 +26,6 @@ public class TodosPage {
     
     @FindBy(xpath = "/html/body/ng-view/section/footer/button")
     private WebElement clearCompleted;
-    
-    @FindBy(xpath = "/html/body/ng-view/section/section/ul/li/div/input")
-    private WebElement isCheckedTodoField;
 
     @FindBy(xpath = "/html/body/ng-view/section/footer/span/strong")
     private WebElement foundItemsCount;
@@ -44,10 +41,7 @@ public class TodosPage {
     public void inputNewTodo(String todo) {
         newTodoField.sendKeys(todo + Keys.ENTER);
     }
-    
-    public void toggleFirstTodo(){
-        isCheckedTodoField.click();
-    }
+
     public void clickClearCompleted(){
         clearCompleted.click();
     }

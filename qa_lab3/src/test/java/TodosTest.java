@@ -33,19 +33,27 @@ public class TodosTest {
     @Test
     public void clearCompletedTest(){
         todosPage.inputNewTodo("my task 2");
-        int expected = todosPage.getAllItemsCount()-1;
+        todosPage.toggleTodo(todosPage.getAllItemsCount()-1);
+        int expected = todosPage.getActiveItemsCount();
 
-        todosPage.toggleFirstTodo();
 
         todosPage.clickClearCompleted();
-        assertEquals(expected, todosPage.getActiveItemsCount());
+        assertEquals(expected, todosPage.getAllItemsCount());
     }
 
     @Test
-    public void toggleNewTodoTest() {
+    public void checkNewTodoTest() {
         todosPage.inputNewTodo("my task 3");
         todosPage.toggleTodo(todosPage.getAllItemsCount()-1);
         assertEquals(true, todosPage.getTodoIsChecked(todosPage.getAllItemsCount()-1));
+    }
+
+    @Test
+    public void uncheckNewTodoTest() {
+        todosPage.inputNewTodo("my task 3");
+        todosPage.toggleTodo(todosPage.getAllItemsCount()-1);
+        todosPage.toggleTodo(todosPage.getAllItemsCount()-1);
+        assertEquals(false, todosPage.getTodoIsChecked(todosPage.getAllItemsCount()-1));
     }
     
     @Test
@@ -73,6 +81,6 @@ public class TodosTest {
 
     @AfterAll
     public static void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 }
